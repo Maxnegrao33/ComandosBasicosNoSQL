@@ -1,0 +1,55 @@
+create database Escola;
+
+use Escola;
+
+create table Cursos(
+Cod_Curso int not null primary key,
+Nome varchar(30) not null,
+Valor double (8,2),
+Carga_Horaria int
+);
+
+
+insert into Cursos values(1, "Java Fundamentos", 600.00, 600);
+insert into Cursos values(2, "Banco de Dados", 400.00, 800);
+insert into Cursos values(3, "Eng. Software", 1800.00, 1000);
+insert into Cursos values(4, "Eng Computacao", 6000.00, 2000);
+
+select * from cursos;
+
+create table Contrato(
+Cod_Contrato int not null primary key,
+data date,
+Cod_Aluno int,
+Valor double (8,2),
+Desconto double (5,2)
+);
+
+insert into Contrato values (1, sysdate(), 1, 500.00, 00.00);
+insert into Contrato values (2, sysdate(), 2, 500.00, 100.00);
+insert into Contrato values (3, sysdate(), 3, 1500.00, 00.00);
+insert into Contrato values (4, sysdate()-5, 2, 1600.00, 00.00);
+insert into Contrato values (5, sysdate()-4, 5, 800.00, 150.00);
+insert into Contrato values (6, sysdate()-3, 5, 445.00, 165.00);
+insert into Contrato values (7, sysdate()-2, 5, 445.20, 164.80);
+
+
+select * from aluno;
+select * from contrato;
+select * from cursos;
+
+alter table aluno rename column Nome_Aluno to Aluno;
+alter table aluno rename column End_Aluno to Endereco;
+alter table aluno rename column CEP_Aluno to End_Postal;
+alter table aluno rename column Cidade_Aluno to Cidade;
+alter table aluno rename column UF_aluno to UF;
+alter table aluno add column Telefone varchar(20) not null; 
+
+alter table cursos add column Docente varchar(50) not null;
+alter table cursos add column Periodo varchar(8);
+
+select sysdate() from dual;
+
+show databases;
+select * from aluno;
+delete from aluno where Id_Aluno = 2;
